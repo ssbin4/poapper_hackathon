@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Postech Washer</title>
+    <style>
+      .nav{
+        height : 70px;
+        border-bottom: 1px solid blac;
+        display: flex;
+        align-items: center;
+      }
+      .nav-right-items {
+        display : flex;
+        margin-left : auto;
+      }
+
+      .nav-item{
+        margin : 10px;
+      }
+
+      .title {
+        text-align: center;
+        font-size : 3.5rem;
+        font-weight : bold;
+      }
+
+      .subtitle {
+        text-align: center;
+        font-size: 1.25rem;
+        font-weight: 300;
+      }
+
+      .main{
+        margin-top : 300px;
+        width: 800px;
+        margin: 0 auto;
+      }
+
+      .washer-item{
+        width: 300px;
+        height : 300px;
+        border: 5px solid black;
+        margin: 20px;
+        border-radius: 4px;
+        text-align: center;
+      }
+
+      .first-row{
+        display : flex; 
+      }
+
+      .second-row{
+        display : flex; 
+      }
+
+      .third-row{
+        display : flex; 
+      }
+
+      .fourth-row{
+        display : flex; 
+      }
+
+      .washer-item-title{
+        font-size: 1.5rem;
+        background: rbga(0,0,0,.03);
+        text-align: center;
+        height : 53px;
+        line-height: 53px;
+        border-bottom: 1px solid black; 
+      }
+
+      .washer-item-value{
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-top: 30px;
+        padding : 20px;
+      }
+
+      .washer-item-button{
+        padding: .5rem 1rem;
+        font-size: 1.25rem;
+        line-height: 1.5;
+        border-radius: .3rem;
+        color:#007bff;
+        background-color: transparent;
+        background-image: none;
+        border-color: #007bff;
+        margin-top: 30px;
+      }
+
+      .washer-item-button--active{
+        background-color:#007bff;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class = "nav">
+      <div class = "nav-right-items">
+        <div class="nav-item"> 1층</div>
+        <div class="nav-item"> 2층</div>
+      </div>
+    </div>
+    <div class = "main">
+      <div class= "title">
+      POSTECH RC 세탁소
+      </div>
+      <div class = "subtitle">
+        이 페이지는 POSTECH의 기숙사 중 RC기숙사에 한해 세탁기 이용현황을 기록합니다. 1층(남자)과 12층(여자)에서, 어떤 세탁기가 이용중이고, 사용까지 시간이 몇 분 남았는지 기록하여 굳이 세탁이 끝났는지 확인하기 위해 여러번 방문하는 것을 방지해 줍니다.
+      </div>
+      <div class="washer">
+        <div class = "first-row">
+          <div class ="washer-item">
+            <div class="washer-item-title">
+              ID : No.1
+            </div>
+            <div class="washer-item-value">
+              00:00
+            </div>
+            <form action='/update/1' method='post' style="display:none;"> 
+              <input type="text" name="name" placeholder="Enter your name">
+              <input type="submit" value="Submit">
+            </form>
+            <button class="washer-item-button" onclick="showForm(0)" >
+             Start
+            </button>
+          </div>
+          <div class ="washer-item">
+            <div class="washer-item-title">
+              ID : No.2
+            </div> 
+            <div class="washer-item-value">
+              00:00
+            </div>
+            <form action='/update/2' method='post' style="display:none;"> 
+              <input type="text" name="name" placeholder="Enter your name">
+              <input type="submit" value="Submit">
+            </form>
+            <button class="washer-item-button" onclick="showForm(1)" >
+             Start
+            </button>
+          </div>
+        </div>
+        <div class = "second-row">
+          <div class ="washer-item">
+           <div class="washer-item-title">
+              ID : No.3
+           </div> 
+            <div class="washer-item-value">
+             00:00
+            </div>
+            <form action='/update/3' method='post'style="display:none;"> 
+              <input type="text" name="name" placeholder="Enter your name">
+              <input type="submit" value="Submit">
+            </form>
+            <button class="washer-item-button" onclick="showForm(2)" >
+             Start
+            </button>
+          </div>
+          <div class ="washer-item">
+           <div class="washer-item-title">
+              ID : No.4
+            </div> 
+            <div class="washer-item-value">
+             00:00
+            </div>
+            <form action='/update/4' method='post' style="display:none;"> 
+              <input type="text" name="name" placeholder="Enter your name">
+              <input type="submit" value="Submit">
+            </form>
+            <button class="washer-item-button" onclick="showForm(3)" >
+             Start
+            </button>
+          </div>
+        </div>
+        <div class = "third-row">
+          <div class ="washer-item">
+           <div class="washer-item-title">
+              ID : No.5
+            </div> 
+             <div class="washer-item-value">
+             00:00
+            </div>
+            <form action='/update/5' method='post' style="display:none;"> 
+              <input type="text" name="name" placeholder="Enter your name">
+              <input type="submit" value="Submit">
+            </form>
+            <button class="washer-item-button" onclick="showForm(4)" >
+             Start
+            </button>
+          </div>
+          <div class ="washer-item">
+           <div class="washer-item-title">
+              ID : No.6
+            </div> 
+            <div class="washer-item-value">
+             00:00
+            </div>
+            <form action='/update/6' method='post' style="display:none;"> 
+              <input type="text" name="name" placeholder="Enter your name">
+              <input type="submit" value="Submit">
+            </form>
+            <button class="washer-item-button" onclick="showForm(5)" >
+             Start
+            </button>
+          </div>
+        </div>
+        <div class = "fourth-row">
+          <div class ="washer-item">
+           <div class="washer-item-title">
+              ID : No.7
+            </div> 
+            <div class="washer-item-value">
+             00:00
+            </div>
+            <form action='/update/7' method='post' style="display:none;"> 
+              <input type="text" name="name" placeholder="Enter your name">
+              <input type="submit" value="Submit">
+            </form>
+            <button class="washer-item-button" onclick="showForm(6)" >
+             Start
+            </button>
+          </div>
+          <div class ="washer-item">
+            
+           <div class="washer-item-title">
+              ID : No.8
+            </div> 
+            <div class="washer-item-value">
+             00:00
+            </div>
+            <form action='/update/8' method='post' style="display:none;"> 
+              <input type="text" name="name" placeholder="Enter your name">
+              <input type="submit" value="Submit">
+            </form>
+            <button class="washer-item-button" onclick="showForm(7)" >
+             Start
+            </button>
+          </div>
+        </div>
+    </div>
+    <script>
+      var form=document.querySelectorAll('form');
+      var button=document.querySelectorAll('button');
+      function showForm(i){
+        button[i].style.display='none';
+        form[i].style.display='block';
+      }
+    </script>
+  </body>
+</html>
