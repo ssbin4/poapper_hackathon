@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Postech Washer</title>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Noto+Serif+KR:wght@300&display=swap');
+    </style>
+
+    <style>
+
+      body{
+        background-image:url(https://i.pinimg.com/564x/a7/d3/8b/a7d38b166cda53b6798303ec18309da4.jpg);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-color: #464646;
+      }
+
+      .nav{
+        height : 70px;
+        display: flex;
+        align-items: center;
+        padding-left : 30px;
+        line-height: 70px;
+        border-bottom: 2px solid rgb(126, 123, 123);
+      }
+
+      .nav-left-items {
+        font-family: 'Noto Serif KR', serif;
+        font-size : 2rem;
+        font-weight : bold;
+        display : flex;
+        margin-right : auto;
+        color:rgb(126, 123, 123);
+      }
+
+      .title {
+        font-family: 'Noto Serif KR', serif;
+        text-align: center;
+        font-size : 3.5rem;
+        font-weight : bold;
+        margin : 3rem;
+      }
+
+      .subtitle {
+        font-family: 'Noto Serif KR', serif;
+        text-align: left;
+        font-size: 1.1rem;
+        font-weight: 300;
+        margin-bottom: 2rem;
+        background-color: rgba(229, 226, 226, 0.199);
+      }
+
+      .main{
+        margin-top : 300px;
+        width: 800px;
+        margin: 0 auto;
+      }
+
+      img{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 30px;
+      }
+
+      .washer-item{
+        width: 250px;
+        height : 250px;
+        border: 5px solid black;
+        margin: 30px;
+        border-radius: 10px;
+        text-align: center;
+        font-family: 'Noto Serif KR', serif;
+      }
+
+      .first-row{
+        display : flex;
+        padding-left: 40px;
+        padding-right: 40px;
+        justify-content: space-between;
+      }
+
+      .second-row{
+        display : flex;
+        padding-left: 40px;
+        padding-right: 40px;
+        justify-content: space-between;
+      }
+
+      .third-row{
+        display : flex; 
+        padding-left: 40px;
+        padding-right: 40px;
+        justify-content: space-between;
+      }
+
+      .fourth-row{
+        display : flex; 
+        padding-left: 40px;
+        padding-right: 40px;
+        justify-content: space-between;
+      }
+
+      .floor{
+        font-family: 'Noto Serif KR', serif;
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-align: center;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        margin: 1rem;
+        border-top: 3px solid rgba(63, 49, 42, 0.884);
+        border-bottom: 3px solid rgba(63, 49, 42, 0.884);
+      }
+
+      .washer-item-title{
+        font-size: 1.5rem;
+        background-color: rgba(0, 0, 0, 0.15);
+        text-align: center;
+        height : 53px;
+        line-height: 53px;
+        border-bottom: 1px solid black; 
+      }
+
+      .washer-item-value{
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-top: 30px;
+        padding : 10px;
+      }
+
+      .washer-item-button{
+        padding: .5rem 1rem;
+        font-size: 1.25rem;
+        line-height: 1.5;
+        border-radius: .3rem;
+        color:black;
+        background-color: transparent;
+        background-image: none;
+        border-color: 1px rgba(192,192,192);
+        margin-top: 30px;
+      }
+
+      .washer-item-button--active{
+        background-color:rgba(192,192,192,0.9);
+        color: white;
+      }
+      .floor-button button {
+        background-color: #4CAF50; /* Green background */
+        border: 1px solid green; /* Green border */
+        color: white; /* White text */
+        padding: 10px 24px; /* Some padding */
+        cursor: pointer; /* Pointer/hand icon */
+        float: left; /* Float the buttons side by side */
+      }
+      .floor-button:after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+      .floor-button button:not(:last-child) {
+        border-right: none; /* Prevent double borders */
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div class = "nav">
+      <div class = "nav-left-items">
+        Team PoApper
+      </div>
+    </div>
+    <div class = "main">
+      <div class= "title">
+      POSTECH RC Laundary
+      </div>
+      <div class = "subtitle">
+         <p>
+         이 페이지는 POSTECH의 기숙사 중 RC기숙사에 한해 세탁기 이용현황을 기록합니다. 1층(남자)과 12층(여자)에서, 어떤 세탁기가 이용중이고, 사용까지 시간이 몇 분 남았는지 기록하여 굳이 세탁이 끝났는지 확인하기 위해 여러번 방문하는 것을 방지해 줍니다.
+         </p>
+         * 세탁기는 기본 설정 시간이 45분입니다.*        
+        </div>
+      <img src= https://m.daegu.ac.kr/cmmn/fileView?path=/ckeditor//DG200&physical=1540175153403.jpg&contentType=image>
+      <div class="floor-button">
+        <button onclick="showFloor('men')"> 1층(남자층) </button>
+        <button onclick="showFloor('women')"> 12층(여자층) </button>
+      </div>
+      <div class="first-floor" style="display:none;">
+        <div class="floor">
+          1층(남자층)
+        </div>
+        <div class="washer">
+        <div class = "first-row">
+          <div class ="washer-item">
+            <div class="washer-item-title">
+              ID : No.1
+            </div>
+            <div class="washer-item-value">
+              00:00
+            </div>
+            <form action='/update/1' method='post' autocomplete="off" style="display:none;"> 
+              <input type="text" name="name" placeholder="Enter your name">
+              <input type="submit" value="Submit">
+            </form>
+            <button class="washer-item-button" onclick="showForm(0)" >
+             Start
+            </button>
+          </div>
+          <div class ="washer-item">
+            <div class="washer-item-title">
+              ID : No.2
+            </div> 
+            <div class="washer-item-value">
+              00:00
+            </div>
+            <form action='/update/2' method='post' autocomplete="off" style="display:none;"> 
+              <input type="text" name="name" placeholder="Enter your name">
+              <input type="submit" value="Submit">
+            </form>
+            <button class="washer-item-button" onclick="showForm(1)" >
+             Start
+            </button>
+          </div>
+        </div>
+        <div class = "second-row">
+          <div class ="washer-item">
+           <div class="washer-item-title">
+              ID : No.3
+           </div> 
+            <div class="washer-item-value">
+             00:00
+            </div>
+            <form action='/update/3' method='post'autocomplete="off" style="display:none;"> 
+              <input type="text" name="name" placeholder="Enter your name">
+              <input type="submit" value="Submit">
+            </form>
+            <button class="washer-item-button" onclick="showForm(2)" >
+             Start
+            </button>
+          </div>
+          <div class ="washer-item">
+           <div class="washer-item-title">
+              ID : No.4
+            </div> 
+            <div class="washer-item-value">
+             00:00
+            </div>
+            <form action='/update/4' method='post' autocomplete="off" style="display:none;"> 
+              <input type="text" name="name" placeholder="Enter your name">
+              <input type="submit" value="Submit">
+            </form>
+            <button class="washer-item-button" onclick="showForm(3)" >
+             Start
+            </button>
+          </div>
+        </div>
+        <div class = "third-row">
+          <div class ="washer-item">
+           <div class="washer-item-title">
+              ID : No.5
+            </div> 
+             <div class="washer-item-value">
+             00:00
+            </div>
+            <form action='/update/5' method='post' autocomplete="off" style="display:none;"> 
+              <input type="text" name="name" placeholder="Enter your name">
+              <input type="submit" value="Submit">
+            </form>
+            <button class="washer-item-button" onclick="showForm(4)" >
+             Start
+            </button>
+          </div>
+          <div class ="washer-item">
+           <div class="washer-item-title">
+              ID : No.6
+            </div> 
+            <div class="washer-item-value">
+             00:00
+            </div>
+            <form action='/update/6' method='post' autocomplete="off" style="display:none;"> 
+              <input type="text" name="name" placeholder="Enter your name">
+              <input type="submit" value="Submit">
+            </form>
+            <button class="washer-item-button" onclick="showForm(5)" >
+             Start
+            </button>
+          </div>
+        </div>
+        <div class = "fourth-row">
+          <div class ="washer-item">
+           <div class="washer-item-title">
+              ID : No.7
+            </div> 
+            <div class="washer-item-value">
+             00:00
+            </div>
+            <form action='/update/7' method='post' autocomplete="off" style="display:none;"> 
+              <input type="text" name="name" placeholder="Enter your name">
+              <input type="submit" value="Submit">
+            </form>
+            <button class="washer-item-button" onclick="showForm(6)" >
+             Start
+            </button>
+          </div>
+          <div class ="washer-item">
+           <div class="washer-item-title">
+              ID : No.8
+            </div> 
+            <div class="washer-item-value">
+             00:00
+            </div>
+            <form action='/update/8' method='post' autocomplete="off" style="display:none;"> 
+              <input type="text" name="name" placeholder="Enter your name">
+              <input type="submit" value="Submit">
+            </form>
+            <button class="washer-item-button" onclick="showForm(7)" >
+             Start
+            </button>
+          </div>
+        </div>
+        </div>
+        </div>
+
+
+
+        <div class="second-floor" style="display:none;">
+          <div class="floor">
+            12층(여자층)
+          </div>
+          <div class="washer">
+            <div class = "first-row">
+            <div class ="washer-item">
+              <div class="washer-item-title">
+               ID : No.1
+              </div>
+            <div class="washer-item-value">
+              00:00
+            </div>
+            <form action='/update/9' method='post' autocomplete="off" style="display:none;"> 
+              <input type="text" name="name" placeholder="Enter your name">
+              <input type="submit" value="Submit">
+            </form>
+            <button class="washer-item-button" onclick="showForm(8)" >
+             Start
+            </button>
+          </div>
+          <div class ="washer-item">
+            <div class="washer-item-title">
+              ID : No.2
+            </div> 
+            <div class="washer-item-value">
+              00:00
+            </div>
+            <form action='/update/10' method='post' autocomplete="off" style="display:none;"> 
+              <input type="text" name="name" placeholder="Enter your name">
+              <input type="submit" value="Submit">
+            </form>
+            <button class="washer-item-button" onclick="showForm(9)" >
+             Start
+            </button>
+          </div>
+        </div>
+        <div class = "second-row">
+          <div class ="washer-item">
+           <div class="washer-item-title">
+              ID : No.3
+           </div> 
+            <div class="washer-item-value">
+             00:00
+            </div>
+            <form action='/update/11' method='post'autocomplete="off" style="display:none;"> 
+              <input type="text" name="name" placeholder="Enter your name">
+              <input type="submit" value="Submit">
+            </form>
+            <button class="washer-item-button" onclick="showForm(10)" >
+             Start
+            </button>
+          </div>
+          <div class ="washer-item">
+           <div class="washer-item-title">
+              ID : No.4
+            </div> 
+            <div class="washer-item-value">
+             00:00
+            </div>
+            <form action='/update/12' method='post' autocomplete="off" style="display:none;"> 
+              <input type="text" name="name" placeholder="Enter your name">
+              <input type="submit" value="Submit">
+            </form>
+            <button class="washer-item-button" onclick="showForm(11)" >
+             Start
+            </button>
+          </div>
+        </div>
+        <div class = "third-row">
+          <div class ="washer-item">
+           <div class="washer-item-title">
+              ID : No.5
+            </div> 
+             <div class="washer-item-value">
+             00:00
+            </div>
+            <form action='/update/13' method='post' autocomplete="off" style="display:none;"> 
+              <input type="text" name="name" placeholder="Enter your name">
+              <input type="submit" value="Submit">
+            </form>
+            <button class="washer-item-button" onclick="showForm(12)" >
+             Start
+            </button>
+          </div>
+          <div class ="washer-item">
+           <div class="washer-item-title">
+              ID : No.6
+            </div> 
+            <div class="washer-item-value">
+             00:00
+            </div>
+            <form action='/update/14' method='post' autocomplete="off" style="display:none;"> 
+              <input type="text" name="name" placeholder="Enter your name">
+              <input type="submit" value="Submit">
+            </form>
+            <button class="washer-item-button" onclick="showForm(13)" >
+             Start
+            </button>
+          </div>
+        </div>
+        <div class = "fourth-row">
+          <div class ="washer-item">
+           <div class="washer-item-title">
+              ID : No.7
+            </div> 
+            <div class="washer-item-value">
+             00:00
+            </div>
+            <form action='/update/15' method='post' autocomplete="off" style="display:none;"> 
+              <input type="text" name="name" placeholder="Enter your name">
+              <input type="submit" value="Submit">
+            </form>
+            <button class="washer-item-button" onclick="showForm(14)" >
+             Start
+            </button>
+          </div>
+          <div class ="washer-item">
+            
+           <div class="washer-item-title">
+              ID : No.8
+            </div> 
+            <div class="washer-item-value">
+             00:00
+            </div>
+            <form action='/update/16' method='post' autocomplete="off" style="display:none;"> 
+              <input type="text" name="name" placeholder="Enter your name">
+              <input type="submit" value="Submit">
+            </form>
+            <button class="washer-item-button" onclick="showForm(15)" >
+             Start
+            </button>
+          </div>
+        </div>
+    </div>
+    <script>
+      function showFloor(floor){
+        if(floor=='men'){
+          document.querySelector('div.first-floor').style.display='block';
+          document.querySelector('div.second-floor').style.display='none';
+        }else {
+          document.querySelector('div.first-floor').style.display='none';
+          document.querySelector('div.second-floor').style.display='block';
+        }
+      }
+      var form=document.querySelectorAll('form');
+      var button=document.querySelectorAll('div.washer-item button');
+      function showForm(i){
+        button[i].style.display='none';
+        form[i].style.display='block';
+      }
+      function millisToMinutesAndSeconds(millis) {
+        var minutes = Math.floor(millis / 60000);
+        var seconds = ((millis % 60000) / 1000).toFixed(0);
+        return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
+      }
+      var remain={}; var updated={};
+      remain[0]="<%=remain[0]%>";
+      remain[1]="<%=remain[1]%>";
+      remain[2]="<%=remain[2]%>";
+      remain[3]="<%=remain[3]%>";
+      remain[4]="<%=remain[4]%>";
+      remain[5]="<%=remain[5]%>";
+      remain[6]="<%=remain[6]%>";
+      remain[7]="<%=remain[7]%>";
+      remain[8]="<%=remain[8]%>";
+      remain[9]="<%=remain[9]%>";
+      remain[10]="<%=remain[0]%>";
+      remain[11]="<%=remain[11]%>";
+      remain[12]="<%=remain[12]%>";
+      remain[13]="<%=remain[13]%>";
+      remain[14]="<%=remain[14]%>";
+      remain[15]="<%=remain[15]%>";
+      var timeList=document.querySelectorAll('div.washer-item-value');
+      var startTime, endTime;
+      startTime=Date.now();
+      function end() {
+        endTime = Date.now();
+        var timeDiff = endTime - startTime;
+        for(var i=0;i<16;i++){
+          if(remain[i]=='Empty'){
+            timeList[i].innerHTML='Empty';
+            continue;
+          }
+          if(remain[i]-timeDiff<0){
+            updated[i]='Empty';
+            remain[i]='Empty';
+          }else{
+            updated[i]=millisToMinutesAndSeconds(remain[i]-timeDiff);
+          }
+          timeList[i].innerHTML=updated[i];
+        }
+        var washer=document.querySelectorAll('div.washer-item');
+        for(var i=0;i<16;i++){
+          if(remain[i]=='Empty'){
+            washer[i].style.borderColor="blue";
+          }else{
+            washer[i].style.borderColor="red";
+          }
+        }
+      }
+      setInterval(end,10);
+    </script>
+  </body>
+</html>
